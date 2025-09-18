@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Biểu mẫu đăng ký</title>
+  </head>
+  <body>
+    <div style="width: 24%; background-color: lightgray; margin-left: 40px">
+      <form>
+        <fieldset>
+          <legend>Thông tin tài khoản</legend>
+          <label>Họ và tên</label>
+          <input type="text" />
+          <br /><br />
+          <label>Hòm thư</label>
+          <input type="email" />
+          <br /><br />
+          <label>Mật Khẩu</label>
+          <input type="password" />
+          <br /><br />
+          <label>Xác nhận Mật Khẩu</label>
+          <input type="password" />
+          <br /><br />
+        </fieldset>
+      </form>
+      <br />
+      <form>
+        <fieldset>
+          <legend>Thông tin Cá Nhân</legend>
+          <label>Giới Tính:</label>
+          <input type="radio" name="gioiTinh" /><span>Nam</span>
+          <input type="radio" name="gioiTinh" /><span>Nữ</span>
+          <input type="radio" name="gioiTinh" /><span>Khác</span> <br /><br />
+          <br /><br />
+          <label>Sở thích:</label>
+          <input type="checkbox" name="soThich" /><span>Thể thao</span>
+          <input type="checkbox" name="soThich" /><span>Âm nhạc</span>
+          <input type="checkbox" name="soThich" /><span>Du Lịch</span>
+          <br /><br />
+          <label>Ngày Sinh:</label>
+          <input type="date" />
+          <br /><br />
+          <label>Quốc Gia:</label>
+          <select name="quocGia" id="quocGia">
+            <option value="vn">Việt Nam</option>
+            <option value="us">Hoa Kỳ</option>
+            <option value="jp">Nhật Bản</option>
+          </select>
+          <br /><br />
+          <label>Điện thoại:</label>
+          <input type="tel" />
+          <br /><br />
+          <label>Địa Chỉ Liên Hệ:</label>
+          <br />
+          <textarea
+            name="diaChiLienHe"
+            id="diaChiLienHe"
+            cols="40"
+            rows="4"
+          ></textarea>
+          <br /><br />
+          <div style="text-align: center">
+            <button type="submit">Gửi</button>
+            <button type="reset">Hủy</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
