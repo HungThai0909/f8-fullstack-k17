@@ -1,65 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Biểu mẫu đăng ký</title>
+    <style>
+      div {
+        margin-bottom: 12px;
+      }
+    </style>
   </head>
   <body>
     <div style="width: 24%; background-color: lightgray; margin-left: 40px">
       <form>
         <fieldset>
           <legend>Thông tin tài khoản</legend>
-          <label>Họ và tên</label>
-          <input type="text" />
-          <br /><br />
-          <label>Hòm thư</label>
-          <input type="email" />
-          <br /><br />
-          <label>Mật Khẩu</label>
-          <input type="password" />
-          <br /><br />
-          <label>Xác nhận Mật Khẩu</label>
-          <input type="password" />
-          <br /><br />
+          <div>
+            <label>Họ và tên</label>
+            <input type="text" name="fullName" autocomplete="name" required />
+          </div>
+
+          <div>
+            <label>Hòm thư</label>
+            <input type="email" name="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label>Mật Khẩu</label>
+            <input
+              type="password"
+              name="password"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div>
+            <label>Xác nhận Mật Khẩu</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              autocomplete="new-password"
+              required
+            />
+          </div>
         </fieldset>
-      </form>
-      <br />
-      <form>
         <fieldset>
           <legend>Thông tin Cá Nhân</legend>
-          <label>Giới Tính:</label>
-          <input type="radio" name="gioiTinh" /><span>Nam</span>
-          <input type="radio" name="gioiTinh" /><span>Nữ</span>
-          <input type="radio" name="gioiTinh" /><span>Khác</span> <br /><br />
-          <br /><br />
-          <label>Sở thích:</label>
-          <input type="checkbox" name="soThich" /><span>Thể thao</span>
-          <input type="checkbox" name="soThich" /><span>Âm nhạc</span>
-          <input type="checkbox" name="soThich" /><span>Du Lịch</span>
-          <br /><br />
-          <label>Ngày Sinh:</label>
-          <input type="date" />
-          <br /><br />
-          <label>Quốc Gia:</label>
-          <select name="quocGia" id="quocGia">
-            <option value="vn">Việt Nam</option>
-            <option value="us">Hoa Kỳ</option>
-            <option value="jp">Nhật Bản</option>
-          </select>
-          <br /><br />
-          <label>Điện thoại:</label>
-          <input type="tel" />
-          <br /><br />
-          <label>Địa Chỉ Liên Hệ:</label>
-          <br />
-          <textarea
-            name="diaChiLienHe"
-            id="diaChiLienHe"
-            cols="40"
-            rows="4"
-          ></textarea>
-          <br /><br />
+          <div>
+            <label>Giới Tính:</label>
+            <input type="radio" name="gioiTinh" /><span>Nam</span>
+            <input type="radio" name="gioiTinh" /><span>Nữ</span>
+            <input type="radio" name="gioiTinh" /><span>Khác</span>
+          </div>
+          <div>
+            <label>Sở thích:</label>
+            <input type="checkbox" name="soThich" /><span>Thể thao</span>
+            <input type="checkbox" name="soThich" /><span>Âm nhạc</span>
+            <input type="checkbox" name="soThich" /><span>Du Lịch</span>
+          </div>
+          <div>
+            <label>Ngày Sinh:</label>
+            <input type="date" name="ngaySinh" autocomplete="bday" required />
+          </div>
+          <div>
+            <label>Quốc Gia:</label>
+            <select name="quocGia" id="quocGia" autocomplete="country" required>
+              <option value="">--Chọn quốc gia--</option>
+              <option value="vn">Việt Nam</option>
+              <option value="us">Hoa Kỳ</option>
+              <option value="jp">Nhật Bản</option>
+            </select>
+          </div>
+          <div>
+            <label>Điện thoại:</label>
+            <input type="tel" name="dienThoai" autocomplete="tel" required />
+          </div>
+          <div>
+            <label>Địa Chỉ Liên Hệ:</label>
+            <textarea
+              name="diaChiLienHe"
+              id="diaChiLienHe"
+              cols="40"
+              rows="4"
+              autocomplete="street-address"
+            ></textarea>
+          </div>
           <div style="text-align: center">
             <button type="submit">Gửi</button>
             <button type="reset">Hủy</button>
