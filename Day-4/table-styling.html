@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Styling</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto;
+            box-shadow: 10px 10px 5px gray;
+            border: 2px solid lightgray;
+        }
+        th,
+        td {
+            padding: 5px;
+            border: 2px solid lightgray;
+        }
+        th {
+            background-color: darkblue;
+            color: white;
+            text-transform: uppercase;
+        }
+        th.menu {
+            text-transform: capitalize;
+        }
+        tr:nth-child(odd) td {
+        background-color: aqua;
+        }
+        tr:hover td {
+        background-color: pink;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Họ và tên</th>
+            <th>Năm sinh</th>
+            <th>Tỉnh Thành</th>
+            <th class="menu">Menu</th>
+        </tr>
+        <tr>
+            <td>Nguyễn Minh Cường</td>
+            <td>2000</td>
+            <td>Hà Nội</td>
+            <td>
+               <a href="#" title="Thêm">&#43;</a> |
+               <a href="#" title="Sửa">&#9998</a> |
+               <a href="#" title="Xóa">&#128465;</a></td>
+        </tr>
+        <tr>
+            <td>Trần Thị Nga</td>
+            <td>2002</td>
+            <td>Hà Nội</td>
+            <td>
+               <a href="#" title="Thêm">&#43;</a> |
+               <a href="#" title="Sửa">&#9998</a> |
+               <a href="#" title="Xóa">&#128465;</a></td>
+        </tr>
+        <tr>
+            <td>Vũ Hữu Minh</td>
+            <td>2001</td>
+            <td>Đà Nẵng</td>
+           <td>
+               <a href="#" title="Thêm">&#43;</a> |
+               <a href="#" title="Sửa">&#9998</a> |
+               <a href="#" title="Xóa">&#128465;</a></td>
+        </tr>
+        <tr>
+            <td>Cao Thanh Lan</td>
+            <td>2003</td>
+            <td>Nghệ An</td>
+            <td>
+               <a href="#" title="Thêm">&#43;</a> |
+               <a href="#" title="Sửa">&#9998;</a> |
+               <a href="#" title="Xóa">&#128465;</a></td>
+        </tr>
+        <tr>
+            <td>Đoàn Văn Hậu</td>
+            <td>2002</td>
+            <td>Ninh Bình</td>
+            <td>
+               <a href="#" title="Thêm">&#43;</a> |
+               <a href="#" title="Sửa">&#9998</a> |
+               <a href="#" title="Xóa">&#128465;</a></td>
+        </tr>
+    </table>
+</body>
+</html>
