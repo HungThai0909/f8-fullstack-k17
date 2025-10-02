@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+    }
+
+    .input-group {
+      position: relative;
+      width: 320px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      font-size: 20px;
+      border: 2px solid blue;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      font-size: 20px;
+      transform: translateY(-50%);
+      color: gray;
+      background: white;
+      padding: 0 6px;
+      transition: 0.4s ease;
+    }
+
+    
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: -2px;
+    }

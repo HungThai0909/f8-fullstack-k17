@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1000px;
+}
+
+.overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      opacity: 0;
+}
+
+input:checked ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    position: relative;
+    top: -65px;
+    left: 100px;
+    background: white;
+    width: 800px;
+    height: 110px;
+    padding: 0;
+    opacity: 0;
+}
+
+.modal-content {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal-box hr {
+    margin-inline: 20px;
+}
+
+.modal-box p {
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+input:checked ~ .modal-box {
+   opacity: 1;
+   visibility: visible;
+}
+
