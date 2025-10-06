@@ -8,6 +8,10 @@
     width: 1000px;
 }
 
+.open {
+    cursor: pointer;
+}
+
 .overlay {
       position: absolute;
       top: 0;
@@ -15,18 +19,21 @@
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.7);
-      opacity: 0;
+    opacity: 0;
+    pointer-events: none; 
 }
 
 input:checked ~ .overlay {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; 
 }
 
 .modal-box {
-    position: relative;
-    top: -65px;
-    left: 100px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    translate: -50%;
     background: white;
     width: 800px;
     height: 110px;
@@ -48,6 +55,10 @@ input:checked ~ .overlay {
     font-weight: bold;
 }
 
+.close:hover {
+    cursor: pointer;
+}
+
 .modal-box hr {
     margin-inline: 20px;
 }
@@ -56,6 +67,7 @@ input:checked ~ .overlay {
     margin-top: 16px;
     margin-left: 20px;
 }
+
 
 input:checked ~ .modal-box {
    opacity: 1;

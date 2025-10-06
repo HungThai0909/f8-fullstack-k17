@@ -37,6 +37,10 @@
       transition: 0.4s ease;
     }
 
+    /* show text cursor when hovering the username label */
+    label[for="username"] {
+      cursor: text;
+    }
     
     input:focus + label,
     input:not(:placeholder-shown) + label {
