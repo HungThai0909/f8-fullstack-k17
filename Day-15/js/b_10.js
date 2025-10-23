@@ -5,9 +5,9 @@ let soLe = "";
 
 for (let i = 0; i <= n; i++) {
   if (i % 2 === 0) {
-    soChan += i + ", ";
+    soChan += i + (i + 2 > n ? "" : ", ");
   } else {
-    soLe += i + ", ";
+    soLe += i + (i + 2 > n ? "" : ", ");
   }
 }
 
