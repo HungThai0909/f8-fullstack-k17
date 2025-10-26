@@ -4,4 +4,4 @@ function printSquareNumber(n) {
     console.log(i * i);
   }
 }
-console.log(printSquareNumber(200));
+printSquareNumber(200);
