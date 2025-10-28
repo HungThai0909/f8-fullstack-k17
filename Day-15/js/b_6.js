@@ -1,11 +1,5 @@
 // Bài 6
-let username = "";
-let password = "";
-let isValid = true;
-
-if (username !== "" && password !== "") {
-  console.log(isValid);
-} else {
-  isValid = false;
-  console.log(isValid);
-}
+let username = "username";
+let password = "password";
+// Kiểm tra khác rỗng (true nếu khác rỗng)
+console.log(username !== "" && password !== "");
