@@ -6,5 +6,5 @@ const arr = [
   [5, 6],
 ];
 
-const result = arr.flat();
+const result = arr.flat(Infinity);
 console.log("Mảng 1 chiều mới:", result);

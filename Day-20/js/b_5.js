@@ -6,7 +6,7 @@ const arr = [
   [4, 5],
 ];
 
-const flatArr = arr.flat();
+const flatArr = arr.flat(Infinity);
 const uniqueArr = flatArr.filter(
   (num, index) => flatArr.indexOf(num) === index
 );
