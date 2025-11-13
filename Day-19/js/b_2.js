@@ -23,8 +23,19 @@ const filterArr = myArr.map((subArr) => {
 console.log("Mảng lọc từ có độ dài > 4:", filterArr);
 
 //3. Ghép tất cả thành 1 mảng 1 chiều.
-let resultArr = [];
-for (let i = 0; i < myArr.length; i++) {
-  resultArr = resultArr.concat(myArr[i]);
-}
+//Cách 1:
+// let resultArr = [];
+// for (let i = 0; i < myArr.length; i++) {
+//   resultArr = resultArr.concat(myArr[i]);
+// }
+// console.log("Mảng ghép tất cả thành 1 mảng 1 chiều:", resultArr);
+
+//Cách 2:
+const resultArr = myArr.flat();
 console.log("Mảng ghép tất cả thành 1 mảng 1 chiều:", resultArr);
+
+
+//Cách 3:
+// const resultArr = myArr.reduce((acc, subArr) => acc.concat(subArr), []);
+// console.log("Mảng ghép tất cả thành 1 mảng 1 chiều:", resultArr);
+

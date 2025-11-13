@@ -20,11 +20,19 @@ const secondaryDiagonal = myArr.map((row, index) => {
 console.log("Mảng các phần tử trên đường chéo phụ:", secondaryDiagonal);
 
 //3. Tính tổng của đường chéo chính và phụ.
-let total = 0;
-for (let i = 0; i < myArr.length; i++) {
-  total = total + myArr[i][i];
-  if (i !== myArr.length - 1 - i) {
-    total = total + myArr[i][myArr.length - 1 - i];
-  }
-}
-console.log("Tổng của đường chéo chính và phụ:", total);
+
+// Không tính trùng
+// let total = 0;
+// for (let i = 0; i < myArr.length; i++) {
+//   total = total + myArr[i][i];
+//   if (i !== myArr.length - 1 - i) {
+//     total = total + myArr[i][myArr.length - 1 - i];
+//   }
+// }
+// console.log("Tổng của đường chéo chính và phụ:", total);
+
+// Tổng 2 đường chéo
+const sumMain = mainDiagonal.reduce((sum, val) => sum + val, 0);
+const sumSecondary = secondaryDiagonal.reduce((sum, val) => sum + val, 0);
+const totalBothDiagonals = sumMain + sumSecondary;
+console.log("Tổng của đường chéo chính và phụ:", totalBothDiagonals);
