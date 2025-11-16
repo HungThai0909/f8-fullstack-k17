@@ -4,6 +4,13 @@ const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 const confirmationInput = document.querySelector("#confirmation");
 
+const touched = {
+  username: false,
+  email: false,
+  password: false,
+  confirmation: false,
+};
+
 function showError(input, message) {
   const parent = input.parentElement.parentElement;
   const checkIcon = input.nextElementSibling;
@@ -46,8 +53,20 @@ function showSuccess(input) {
   }
 }
 
+function hideIcons(input) {
+  const checkIcon = input.nextElementSibling;
+  const errorIcon = checkIcon.nextElementSibling;
+
+  checkIcon.classList.add("hidden");
+  errorIcon.classList.add("hidden");
+}
+
 function validateUsername() {
   const value = usernameInput.value.trim();
+
+  if (!touched.username) {
+    return true;
+  }
 
   if (value === "") {
     showError(usernameInput, "Username cannot be blank");
@@ -60,6 +79,10 @@ function validateUsername() {
 
 function validateEmail() {
   const value = emailInput.value.trim();
+
+  if (!touched.email) {
+    return true;
+  }
 
   if (value === "") {
     showError(emailInput, "Please enter valid email address");
@@ -80,6 +103,11 @@ function isValidEmail(email) {
 
 function validatePassword() {
   const value = passwordInput.value;
+
+  if (!touched.password) {
+    return true;
+  }
+
   if (value === "") {
     showError(passwordInput, "Password cannot be blank");
     return false;
@@ -93,6 +121,10 @@ function validateConfirmation() {
   const value = confirmationInput.value;
   const passwordValue = passwordInput.value;
 
+  if (!touched.confirmation) {
+    return true;
+  }
+
   if (value === "") {
     showError(confirmationInput, "Password confirmation required");
     return false;
@@ -105,20 +137,50 @@ function validateConfirmation() {
   }
 }
 
-usernameInput.addEventListener("input", validateUsername);
+usernameInput.addEventListener("input", function () {
+  if (usernameInput.value.length > 0) {
+    touched.username = true;
+  }
+  validateUsername();
+});
+
 usernameInput.addEventListener("blur", validateUsername);
 
-emailInput.addEventListener("input", validateEmail);
+emailInput.addEventListener("input", function () {
+  if (emailInput.value.length > 0) {
+    touched.email = true;
+  }
+  validateEmail();
+});
+
 emailInput.addEventListener("blur", validateEmail);
 
-passwordInput.addEventListener("input", validatePassword);
+passwordInput.addEventListener("input", function () {
+  if (passwordInput.value.length > 0) {
+    touched.password = true;
+  }
+  validatePassword();
+});
+
 passwordInput.addEventListener("blur", validatePassword);
 
-confirmationInput.addEventListener("input", validateConfirmation);
+confirmationInput.addEventListener("input", function () {
+  if (confirmationInput.value.length > 0) {
+    touched.confirmation = true;
+  }
+  validateConfirmation();
+});
+
 confirmationInput.addEventListener("blur", validateConfirmation);
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  touched.username = true;
+  touched.email = true;
+  touched.password = true;
+  touched.confirmation = true;
+
   const isUsernameValid = validateUsername();
   const isEmailValid = validateEmail();
   const isPasswordValid = validatePassword();
