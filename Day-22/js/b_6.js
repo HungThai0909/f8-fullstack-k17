@@ -74,7 +74,7 @@ const maxScore = (matches) => {
     return acc;
   }, {});
   return Object.entries(goals)
-    .map((team, sumGoals) => [team, sumGoals])
+    .map(([team, sumGoals]) => ({ team, sumGoals }))
     .sort((a, b) => b.sumGoals - a.sumGoals)[0];
 };
 console.log("Đội có số bàn thắng nhiều nhất:", maxScore(matches));

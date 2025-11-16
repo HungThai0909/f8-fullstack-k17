@@ -63,7 +63,7 @@ const groupReviewsByProject = (reviews) => {
     if (!acc[cur.productId]) {
       acc[cur.productId] = [];
     }
-    acc[cur.productId].push({ useId: cur.useId, rating: cur.rating });
+    acc[cur.productId].push({ userId: cur.userId, rating: cur.rating });
     return acc;
   }, {});
 };
