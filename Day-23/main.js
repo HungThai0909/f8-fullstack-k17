@@ -97,7 +97,7 @@ function validateEmail() {
 }
 
 function isValidEmail(email) {
-  const regex = /.+@.+\..+/;
+  const regex = /^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/;
   return regex.test(email);
 }
 
@@ -192,3 +192,5 @@ form.addEventListener("submit", function (e) {
     alert("Account created successfully!");
   }
 });
+
+usernameInput.focus();
