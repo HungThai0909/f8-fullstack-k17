@@ -4,6 +4,7 @@ const tasksList = document.querySelector("#tasksList");
 
 let tasks = [];
 let editingTaskId = null;
+
 function renderTask(task) {
   if (editingTaskId === task.id) {
     return renderEditMode(task);
@@ -63,11 +64,24 @@ function toggleTask(id) {
 
 function addTask() {
   const text = taskInput.value.trim();
-  if (text) {
-    tasks.push({ id: Date.now(), text, completed: false });
-    taskInput.value = "";
-    renderAll();
+  if (!text) {
+    return;
   }
+  const isDuplicate = tasks.some(
+    (task) => task.text.toLowerCase() === text.toLowerCase()
+  );
+  if (isDuplicate) {
+    taskInput.value = "";
+    alert("Task này đã tồn tại!");
+    setTimeout(() => {
+      taskInput.style.borderColor = "#2563eb"; // Xanh dương
+      taskInput.placeholder = "What is the task today?";
+    }, 2000);
+    return;
+  }
+  tasks.push({ id: Date.now(), text, completed: false });
+  taskInput.value = "";
+  renderAll();
 }
 
 function editTask(id) {
@@ -77,13 +91,21 @@ function editTask(id) {
 
 function saveTask(id, newText) {
   const text = newText.trim();
-  if (text) {
-    const task = tasks.find((t) => t.id === id);
-    if (task) {
-      task.text = text;
-      editingTaskId = null;
-      renderAll();
-    }
+  if (!text) {
+    return;
+  }
+  const isDuplicate = tasks.some(
+    (task) => task.id !== id && task.text.toLowerCase() === text.toLowerCase()
+  );
+  if (isDuplicate) {
+    alert("Task này đã tồn tại!");
+    return;
+  }
+  const task = tasks.find((t) => t.id === id);
+  if (task) {
+    task.text = text;
+    editingTaskId = null;
+    renderAll();
   }
 }
 
