@@ -74,7 +74,6 @@ function addTask() {
     taskInput.value = "";
     alert("Task này đã tồn tại!");
     setTimeout(() => {
-      taskInput.style.borderColor = "#2563eb"; // Xanh dương
       taskInput.placeholder = "What is the task today?";
     }, 2000);
     return;
