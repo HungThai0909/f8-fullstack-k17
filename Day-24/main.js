@@ -3,10 +3,12 @@ const addBtn = document.querySelector("#addBtn");
 const tasksList = document.querySelector("#tasksList");
 
 let tasks = [];
-
+let editingTaskId = null;
 function renderTask(task) {
+  if (editingTaskId === task.id) {
+    return renderEditMode(task);
+  }
   const classes = task.completed ? "line-through text-gray-400" : "text-white";
-
   return `
     <div class="flex items-center bg-violet-500 border rounded-md duration-200 group" data-id="${task.id}">
       <span class="flex-1 py-2 pl-4 cursor-pointer transition-all duration-200 ${classes}" onclick="toggleTask(${task.id})">
@@ -40,6 +42,15 @@ function renderEditMode(task) {
 
 function renderAll() {
   tasksList.innerHTML = tasks.map(renderTask).join("");
+  if (editingTaskId !== null) {
+    const editInput = document.querySelector(`#edit-${editingTaskId}`);
+    if (editInput) {
+      editInput.setSelectionRange(
+        editInput.value.length,
+        editInput.value.length
+      );
+    }
+  }
 }
 
 function toggleTask(id) {
@@ -60,11 +71,8 @@ function addTask() {
 }
 
 function editTask(id) {
-  const task = tasks.find((t) => t.id === id);
-  if (task) {
-    const taskEl = document.querySelector(`[data-id="${id}"]`);
-    taskEl.innerHTML = renderEditMode(task);
-  }
+  editingTaskId = id;
+  renderAll();
 }
 
 function saveTask(id, newText) {
@@ -73,13 +81,22 @@ function saveTask(id, newText) {
     const task = tasks.find((t) => t.id === id);
     if (task) {
       task.text = text;
+      editingTaskId = null;
       renderAll();
     }
   }
 }
 
+function cancelEdit() {
+  editingTaskId = null;
+  renderAll();
+}
+
 function deleteTask(id) {
   tasks = tasks.filter((t) => t.id !== id);
+  if (editingTaskId === id) {
+    editingTaskId = null;
+  }
   renderAll();
 }
 
