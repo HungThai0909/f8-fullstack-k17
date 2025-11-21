@@ -11,17 +11,17 @@ function renderTask(task) {
   }
   const classes = task.completed ? "line-through text-gray-400" : "text-white";
   return `
-    <div class="flex items-center bg-violet-500 border rounded-md duration-200 group" data-id="${task.id}">
+    <li class="flex items-center bg-violet-500 border rounded-md duration-200 group" data-id="${task.id}">
       <span class="flex-1 py-2 pl-4 cursor-pointer transition-all duration-200 ${classes}" onclick="toggleTask(${task.id})">
         ${task.text}
       </span>
-      <button class="w-8 h-8 text-white transition-all duration-200" onclick="editTask(${task.id})">
+      <button id="edit-task" class="w-8 h-8 text-white transition-all duration-200" onclick="editTask(${task.id})">
         <i class="fas fa-edit"></i>
       </button>
-      <button class="w-8 h-8 text-white transition-all duration-200 pr-4" onclick="deleteTask(${task.id})">
+      <button id="delete-task" class="w-8 h-8 text-white transition-all duration-200 pr-4" onclick="deleteTask(${task.id})">
         <i class="fas fa-trash"></i>
       </button>
-    </div>
+    </li>
   `;
 }
 
@@ -35,7 +35,7 @@ function renderEditMode(task) {
         id="edit-${task.id}">
       <button class="p-2 bg-violet-500 text-sm text-white font-medium transition-colors duration-200 cursor-pointer"
         onclick="saveTask(${task.id}, document.querySelector('#edit-${task.id}').value)">
-        Add Task
+        Edit Task
       </button>
     </div>
   `;
@@ -126,4 +126,8 @@ taskInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     addTask();
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  taskInput.focus();
 });
