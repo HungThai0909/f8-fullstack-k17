@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom context</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      .selected {
+        @apply border border-dotted border-green-500;
+      }
+
+      li {
+        @apply flex items-center min-w-[200px];
+      }
+
+      .item-text {
+        @apply break-words min-w-0 flex-[0_1_auto];
+      }
+
+      li .up {
+        @apply ml-auto shrink-0 whitespace-nowrap;
+      }
+
+      li .down {
+        @apply ml-2 shrink-0 whitespace-nowrap;
+      }
+
+      .context-menu {
+        @apply absolute bg-white border border-gray-300 rounded shadow-[0_2px_10px_rgba(0,0,0,0.2)] z-[1000] min-w-[150px];
+      }
+
+      .context-menu-item {
+        @apply px-4 py-2 cursor-pointer transition-colors duration-200;
+      }
+
+      .context-menu-item:hover {
+        @apply bg-gray-100;
+      }
+
+      .modal-overlay {
+        @apply fixed inset-0 bg-black/50 flex justify-center items-center z-[1000];
+      }
+
+      .rename-modal {
+        @apply bg-[#e0e0e0] p-5 rounded shadow-[0_4px_12px_rgba(0,0,0,0.3)] min-w-[300px];
+      }
+
+      .modal-buttons {
+        @apply flex gap-2.5 items-center;
+      }
+
+      .modal-input {
+        @apply flex-1 px-2.5 py-1.5 border border-[#999] rounded text-sm outline-none;
+      }
+
+      .modal-input:focus {
+        @apply border-[#0066cc];
+      }
+
+      .modal-btn {
+        @apply px-4 py-1.5 border border-[#999] rounded bg-[#d0d0d0] cursor-pointer text-sm whitespace-nowrap;
+      }
+
+      .modal-btn:hover {
+        @apply bg-[#c0c0c0];
+      }
+
+      .modal-btn:active {
+        @apply bg-[#b0b0b0];
+      }
+
+      .save-btn {
+        @apply bg-[#e0e0e0];
+      }
+
+      .cancel-btn {
+        @apply bg-[#d0d0d0];
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p-8">
+      <ul class="list-none flex flex-col items-start">
+        <li class="my-4 py-2 px-1">
+          Item 1
+          <span class="text-green-600 cursor-pointer up">Up</span>
+          <span class="text-red-600 cursor-pointer down">Down</span>
+        </li>
+        <li class="my-4 py-2 px-1">
+          Item 2
+          <span class="text-green-600 cursor-pointer up">Up</span>
+          <span class="text-red-600 cursor-pointer down">Down</span>
+        </li>
+        <li class="my-4 py-2 px-1">
+          Item 3
+          <span class="text-green-600 cursor-pointer up">Up</span>
+          <span class="text-red-600 cursor-pointer down">Down</span>
+        </li>
+        <li class="my-4 py-2 px-1">
+          Item 4
+          <span class="text-green-600 cursor-pointer up">Up</span>
+          <span class="text-red-600 cursor-pointer down">Down</span>
+        </li>
+        <li class="my-4 py-2 px-1">
+          Item 5
+          <span class="text-green-600 cursor-pointer up">Up</span>
+          <span class="text-red-600 cursor-pointer down">Down</span>
+        </li>
+      </ul>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
