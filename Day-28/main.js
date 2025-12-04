@@ -76,7 +76,7 @@ function createPostCard(post) {
     <h3 class="text-xl font-bold mb-3">${post.title || "Không có tiêu đề"}</h3>
     <p class="text-gray-700 mb-4">${post.body || "Không có nội dung"}</p>
     <div class="flex items-center justify-between">
-      <button class="view-detail px-4 py-2 border border-gray-800 rounded-full hover:bg-green-600 hover:text-white transition font-medium">
+      <button class="view-detail px-4 py-2 cursor-pointer border border-gray-800 rounded-full hover:bg-green-600 hover:text-white transition font-medium">
         Xem chi tiết
       </button>
       <div class="flex gap-4">
