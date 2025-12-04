@@ -1,6 +1,7 @@
 let allPosts = [];
 let currentSort = "desc";
 let searchTimeout;
+let currentSearchResults = []; 
 
 const postsContainer = document.querySelector("#postsContainer");
 const searchInput = document.querySelector("#searchInput");
@@ -55,6 +56,7 @@ async function loadPosts(sortOrder = "desc") {
     return;
   }
   allPosts = data.posts;
+  currentSearchResults = []; 
   displayPosts(allPosts);
   toggleLoading(false);
 }
@@ -95,6 +97,7 @@ searchInput.addEventListener("input", (e) => {
   clearTimeout(searchTimeout);
   const query = e.target.value.trim();
   if (!query) {
+    currentSearchResults = []; 
     loadPosts(currentSort);
     return;
   }
@@ -106,6 +109,7 @@ searchInput.addEventListener("input", (e) => {
     if (!data || !data.posts) {
       toggleEmpty(true);
       toggleLoading(false);
+      currentSearchResults = [];
       return;
     }
     const filtered = data.posts.filter((post) => {
@@ -115,10 +119,17 @@ searchInput.addEventListener("input", (e) => {
         post.body?.toLowerCase().includes(q)
       );
     });
-    displayPosts(filtered);
+    currentSearchResults = sortPostsArray(filtered, currentSort);
+    displayPosts(currentSearchResults);
     toggleLoading(false);
   }, 500);
 });
+
+function sortPostsArray(posts, order) {
+  return [...posts].sort((a, b) => {
+    return order === "desc" ? b.id - a.id : a.id - b.id;
+  });
+}
 
 function updateSort(order) {
   currentSort = order;
@@ -127,7 +138,15 @@ function updateSort(order) {
   sortNewest.classList.toggle("border", !isNewest);
   sortOldest.classList.toggle("bg-yellow-300", !isNewest);
   sortOldest.classList.toggle("border", isNewest);
-  if (!searchInput.value.trim()) loadPosts(order);
+  if (searchInput.value.trim()) {
+    if (currentSearchResults.length > 0) {
+      const sorted = sortPostsArray(currentSearchResults, order);
+      currentSearchResults = sorted;
+      displayPosts(sorted);
+    }
+  } else {
+    loadPosts(order);
+  }
 }
 
 sortNewest.addEventListener("click", () => updateSort("desc"));
@@ -147,6 +166,7 @@ async function openModal(postId) {
   modalLoading.classList.add("hidden");
   modalContent.classList.remove("hidden");
 }
+
 function closeModalHandler() {
   toggleModal(false);
 }
