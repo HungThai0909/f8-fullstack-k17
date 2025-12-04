@@ -1,7 +1,7 @@
 let allPosts = [];
 let currentSort = "desc";
 let searchTimeout;
-let currentSearchResults = []; 
+let currentSearchResults = [];
 
 const postsContainer = document.querySelector("#postsContainer");
 const searchInput = document.querySelector("#searchInput");
@@ -18,7 +18,7 @@ const modalOverlay = document.querySelector("#modalOverlay");
 async function fetchData(url) {
   try {
     const controller = new AbortController();
-    setTimeout(() => controller.abort(), 8000);
+    setTimeout(() => controller.abort(), 3000);
     const res = await fetch(url, { signal: controller.signal });
     if (!res.ok) {
       alert(res.status === 404 ? "Không tìm thấy dữ liệu" : "Lỗi server");
@@ -56,7 +56,7 @@ async function loadPosts(sortOrder = "desc") {
     return;
   }
   allPosts = data.posts;
-  currentSearchResults = []; 
+  currentSearchResults = [];
   displayPosts(allPosts);
   toggleLoading(false);
 }
@@ -97,7 +97,7 @@ searchInput.addEventListener("input", (e) => {
   clearTimeout(searchTimeout);
   const query = e.target.value.trim();
   if (!query) {
-    currentSearchResults = []; 
+    currentSearchResults = [];
     loadPosts(currentSort);
     return;
   }
