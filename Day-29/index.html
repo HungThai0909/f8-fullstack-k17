@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      .btn-active {
+        @apply bg-yellow-400;
+      }
+      .modal-open {
+       @apply overflow-hidden pr-4;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="max-w-[80%] mx-auto py-3">
+      <h1 class="text-3xl font-bold text-center">Blogs</h1>
+      <input
+        type="search"
+        placeholder="Search..."
+        class="js-search border border-gray-300 w-full py-2 px-3 outline-none my-3"
+      />
+      <button
+        class="js-add-new cursor-pointer border border-gray-300 py-2 px-5 hover:bg-green-600"
+      >
+        Thêm mới
+      </button>
+      <div class="js-sort flex gap-3 mt-3">
+        <button
+          data-sort="desc"
+          class="btn-active cursor-pointer border border-gray-300 py-2 px-5"
+        >
+          Mới nhất
+        </button>
+        <button
+          data-sort="asc"
+          class="cursor-pointer border border-gray-300 py-2 px-5"
+        >
+          Cũ nhất
+        </button>
+      </div>
+      <div class="js-loading"></div>
+      <div class="js-post-list"></div>
+      <div class="js-paginate flex flex-wrap gap-2 mt-3"></div>
+    </main>
+    <div class="js-modal-overlay fixed inset-0 hidden z-40 bg-black opacity-50"></div>
+    <div
+      class="js-modal-detail fixed inset-0 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white rounded-lg shadow-lg max-w-7xl w-full mx-4 p-6 relative max-h-[90vh] overflow-y-auto"
+      >
+        <button
+          class="js-close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
+        >
+          ×
+        </button>
+        <div class="js-modal-loading text-center py-8">
+          <span class="text-xl">Loading...</span>
+        </div>
+        <div class="js-modal-content hidden">
+          <h2 id="modalTitle" class="text-2xl font-bold mb-4 pr-8"></h2>
+          <p id="modalBody" class="mb-6"></p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="js-modal-form fixed inset-0 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white rounded-lg shadow-lg max-w-7xl w-full mx-4 p-6 relative max-h-[90vh] overflow-y-auto"
+      >
+        <button
+          class="js-close-form absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
+        >
+          ×
+        </button>
+        <h2 class="js-form-title text-2xl font-bold mb-4 pr-8">
+          Thêm bài viết mới
+        </h2>
+        <form class="js-post-form">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Tiêu đề</label>
+            <input
+              type="text"
+              name="title"
+              class="js-title-input w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Nội dung</label>
+            <textarea
+              name="body"
+              rows="6"
+              class="js-body-input w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            ></textarea>
+          </div>
+          <div class="flex gap-3">
+            <button
+              type="submit"
+              class="js-submit-btn px-5 py-2 bg-green-600 text-white hover:bg-green-700 rounded transition"
+            >
+              Lưu
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
