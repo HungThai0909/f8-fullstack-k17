@@ -8,19 +8,20 @@ function App() {
   const correctOTP = "123456";
 
   useEffect(() => {
-    if (inputRefs.current[0]) {
-      inputRefs.current[0].focus();
-    }
+    inputRefs.current[0]?.focus();
   }, []);
 
   const handleChange = (index, value) => {
     if (value && !/^\d$/.test(value)) return;
+
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
+
     if (value && index < 5) {
       inputRefs.current[index + 1].focus();
     }
+
     const fullOtp = newOtp.join("");
     if (fullOtp.length === 6) {
       validateOTP(fullOtp);
@@ -87,7 +88,6 @@ function App() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
       <Toaster position="top-right" richColors />
-
       <div className="flex h-full">
         <div className="flex h-full">
           {otp.slice(0, 3).map((digit, index) => (
@@ -100,7 +100,7 @@ function App() {
               value={digit}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              onPaste={index === 0 ? handlePaste : undefined}
+              onPaste={handlePaste}
               className={`${inputBaseClass} ${
                 index === 0
                   ? "rounded-tl-[10px] rounded-bl-[10px]"
@@ -129,6 +129,7 @@ function App() {
               onKeyDown={(e) =>
                 handleKeyDown(index + 3, e)
               }
+              onPaste={handlePaste}
               className={`${inputBaseClass} ${
                 index === 0
                   ? "rounded-tl-[10px] rounded-bl-[10px]"
