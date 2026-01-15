@@ -1,14 +1,19 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../stores/authStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
-  const { user, isAuthenticated, isInitializing, logout, checkAuth } =
+  const { user, isAuthenticated, logout, checkAuth } =
     useAuthStore();
+    const [isChecking, setIsChecking] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    checkAuth();
+    const initAuth = async () => {
+      await checkAuth();
+      setIsChecking(false); 
+    };
+    initAuth();
   }, []);
   const activeClass = ({ isActive }) => {
     return `px-4 py-2 rounded-lg transition-colors ${
@@ -37,7 +42,7 @@ export default function Nav() {
       <NavLink className={activeClass} to="/contact">
         Contact
       </NavLink>
-      {isInitializing ? (
+      {isChecking ? (
         <span>Loading...</span>
       ) : isAuthenticated ? (
         <>

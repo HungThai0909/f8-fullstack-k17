@@ -8,7 +8,7 @@ export const useAuthStore = create(
       token: null,
       isAuthenticated: false,
       isLoading: false,
-      isInitializing: true,
+      isInitializing: false,
       login: async (email, password) => {
         set({ isLoading: true });
         try {
