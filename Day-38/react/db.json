@@ -1,0 +1,253 @@
+{
+  "exclusiveDeals": {
+    "vegan": [
+      {
+        "id": 1,
+        "name": "Chef Burgers London",
+        "discount": "-40%",
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop",
+        "category": "vegan"
+      },
+      {
+        "id": 2,
+        "name": "Veggie Paradise",
+        "discount": "-20%",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        "category": "vegan"
+      },
+      {
+        "id": 3,
+        "name": "Green Bowl",
+        "discount": "-25%",
+        "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop",
+        "category": "vegan"
+      }
+    ],
+    "sushi": [
+      {
+        "id": 4,
+        "name": "Sushi Master",
+        "discount": "-30%",
+        "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+        "category": "sushi"
+      },
+      {
+        "id": 5,
+        "name": "Tokyo Express",
+        "discount": "-25%",
+        "image": "https://images.unsplash.com/photo-1563612116625-3012372fccce?w=400&h=300&fit=crop",
+        "category": "sushi"
+      },
+      {
+        "id": 6,
+        "name": "Sakura Sushi",
+        "discount": "-20%",
+        "image": "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400&h=300&fit=crop",
+        "category": "sushi"
+      }
+    ],
+    "pizza": [
+      {
+        "id": 7,
+        "name": "Grand Ai Cafe London",
+        "discount": "-40%",
+        "image": "/exclusive-img/fastfood-1.png",
+        "category": "pizza"
+      },
+      {
+        "id": 8,
+        "name": "Butterbrot Café London",
+        "discount": "-20%",
+        "image": "/exclusive-img/fastfood-2.png",
+        "category": "pizza"
+      },
+      {
+        "id": 9,
+        "name": "Pizza Italia",
+        "discount": "-17%",
+        "image": "/exclusive-img/fastfood-1.png",
+        "category": "pizza"
+      }
+    ],
+    "others": [
+      {
+        "id": 10,
+        "name": "Café Deluxe",
+        "discount": "-22%",
+        "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+        "category": "others"
+      },
+      {
+        "id": 11,
+        "name": "Sweet Treats",
+        "discount": "-18%",
+        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop",
+        "category": "others"
+      },
+      {
+        "id": 12,
+        "name": "Pasta House",
+        "discount": "-28%",
+        "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop",
+        "category": "others"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Burgers & Fast food",
+      "count": 21,
+      "image": "/categories-img/burger.png"
+    },
+    {
+      "id": 2,
+      "name": "Salads",
+      "count": 32,
+      "image": "/categories-img/salad.png"
+    },
+    {
+      "id": 3,
+      "name": "Pasta & Casuals",
+      "count": 4,
+      "image": "/categories-img/pasta.png"
+    },
+    {
+      "id": 4,
+      "name": "Pizza",
+      "count": 32,
+      "image": "/categories-img/pizza.png"
+    },
+    {
+      "id": 5,
+      "name": "Breakfast",
+      "count": 4,
+      "image": "/categories-img/breakfast.png"
+    },
+    {
+      "id": 6,
+      "name": "Soups",
+      "count": 32,
+      "image": "/categories-img/soup.png"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "McDonald's London",
+      "logo": "/restaurant-img/mc.png"
+    },
+    {
+      "id": 2,
+      "name": "Papa Johns",
+      "logo": "/restaurant-img/papa.png"
+    },
+    {
+      "id": 3,
+      "name": "KFC West London",
+      "logo": "/restaurant-img/kfc.png"
+    },
+    {
+      "id": 4,
+      "name": "Texas Chicken",
+      "logo": "/restaurant-img/texas.png"
+    },
+    {
+      "id": 5,
+      "name": "Burger King",
+      "logo": "/restaurant-img/burgerking.png"
+    },
+    {
+      "id": 6,
+      "name": "Shaurma 1",
+      "logo": "/restaurant-img/shaurma.png"
+    }
+  ],
+  "knowMoreAboutUs": {
+    "tabs": [
+      {
+        "id": "frequent-questions",
+        "label": "Frequent Questions",
+        "isDefault": true
+      },
+      {
+        "id": "who-we-are",
+        "label": "Who we are?"
+      },
+      {
+        "id": "partner-program",
+        "label": "Partner Program"
+      },
+      {
+        "id": "help-support",
+        "label": "Help & Support"
+      }
+    ],
+    "frequentQuestions": [
+      {
+        "id": 1,
+        "question": "How does Order.UK work?",
+        "isExpanded": true
+      },
+      {
+        "id": 2,
+        "question": "What payment methods are accepted?"
+      },
+      {
+        "id": 3,
+        "question": "Can I track my order in real-time?"
+      },
+      {
+        "id": 4,
+        "question": "Are there any special discounts or promotions available?"
+      },
+      {
+        "id": 5,
+        "question": "Is Order.UK available in my area?"
+      }
+    ],
+    "orderSteps": [
+      {
+        "id": 1,
+        "title": "Place an Order!",
+        "img": "../../../public/faq-img/order-food 1.png",
+        "description": "Place order through our website or Mobile app"
+      },
+      {
+        "id": 2,
+        "title": "Track Progress",
+        "img": "../../../public/faq-img/food 1.png",
+        "description": "Your can track your order status with delivery time"
+      },
+      {
+        "id": 3,
+        "title": "Get your Order!",
+        "img": "../../../public/faq-img/order 1.png",
+        "description": "Receive your order at a lighting fast speed!"
+      }
+    ],
+    "description": "Order.UK simplifies the food ordering process. Browse through our diverse menu, select your favorite dishes, and proceed to checkout. Your delicious meal will be on its way to your doorstep in no time!"
+  },
+  "stats": [
+    {
+      "id": 1,
+      "value": "546+",
+      "label": "Registered Riders"
+    },
+    {
+      "id": 2,
+      "value": "789,900+",
+      "label": "Orders Delivered"
+    },
+    {
+      "id": 3,
+      "value": "690+",
+      "label": "Restaurants Partnered"
+    },
+    {
+      "id": 4,
+      "value": "17,457+",
+      "label": "Food Items"
+    }
+  ]
+}
