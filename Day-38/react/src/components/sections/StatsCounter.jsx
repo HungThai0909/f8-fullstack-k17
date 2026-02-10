@@ -1,9 +1,10 @@
 import useStats from "@/hooks/useStats";
 
 export default function StatsCounter() {
-  const { data: stats, isLoading } = useStats();
+  const { data: stats, isLoading, error } = useStats();
 
   if (isLoading) return null;
+  if (error) return <div className="text-red-500">Error loading stats</div>;
 
   return (
     <section className="mt-12 px-14">
