@@ -15,7 +15,7 @@ export default function KnowMore() {
 
   if (isLoading) {
     return (
-      <div className="mt-12 bg-white min-h-screen">
+      <div className="py-6 bg-white min-h-screen">
         <div className="max-w-350 mx-auto bg-white rounded-md px-25 py-20 text-center">
           Loading...
         </div>
