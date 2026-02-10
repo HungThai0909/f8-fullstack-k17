@@ -4,7 +4,14 @@ export default function StatsCounter() {
   const { data: stats, isLoading, error } = useStats();
 
   if (isLoading) return null;
-  if (error) return <div className="text-red-500">Error loading stats</div>;
+  if (error)
+    return (
+      <section className="py-6 bg-gray-50">
+        <div className="container mx-auto text-center text-red-500">
+          Failed to load stats
+        </div>
+      </section>
+    );
 
   return (
     <section className="mt-12 px-14">
