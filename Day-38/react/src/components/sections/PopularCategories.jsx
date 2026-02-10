@@ -5,7 +5,7 @@ export default function PopularCategories() {
 
   if (isLoading) {
     return (
-      <section className="py-6 bg-gray-50">
+      <section className="py-6 bg-white">
         <div className="container mx-auto text-center">
           Loading categories...
         </div>
@@ -15,7 +15,7 @@ export default function PopularCategories() {
 
   if (error) {
     return (
-      <section className="py-6 bg-gray-50 px-14">
+      <section className="py-6 bg-white">
         <div className="container mx-auto text-center text-red-500">
           Failed to load categories
         </div>

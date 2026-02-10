@@ -6,7 +6,7 @@ export default function StatsCounter() {
   if (isLoading) return null;
   if (error)
     return (
-      <section className="py-6 bg-gray-50">
+      <section className="py-6 bg-white">
         <div className="container mx-auto text-center text-red-500">
           Failed to load stats
         </div>

@@ -15,7 +15,7 @@ export default function KnowMore() {
 
   if (isLoading) {
     return (
-      <div className="mt-23.5 bg-gray-200 min-h-screen">
+      <div className="mt-23.5 bg-white min-h-screen">
         <div className="max-w-350 mx-auto bg-white rounded-md px-25 py-20 text-center">
           Loading...
         </div>
@@ -25,7 +25,7 @@ export default function KnowMore() {
 
   if (error || !data) {
     return (
-      <div className="mt-23.5 bg-gray-200 min-h-screen">
+      <div className="mt-23.5 bg-white min-h-screen">
         <div className="max-w-350 mx-auto bg-white rounded-md px-25 py-20 text-center text-red-600">
           Failed to load data
         </div>
