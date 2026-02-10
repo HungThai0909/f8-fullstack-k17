@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MobileApp() {
   return (
-    <div className="mt-23.5">
+    <div className="mt-12">
       <div className="max-w-350 h-152.75 mx-auto bg-gray-200">
         <div className="flex h-full">
           <div className="basis-1/2 h-full relative z-10">

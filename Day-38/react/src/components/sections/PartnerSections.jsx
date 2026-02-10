@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 
 export default function Partner() {
   return (
-    <div className="mt-13.5">
+    <div className="mt-12">
       <div className="max-w-350 mx-auto">
         <div className="flex">
           <div className="basis-1/2">
