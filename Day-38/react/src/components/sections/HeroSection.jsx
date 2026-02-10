@@ -54,7 +54,7 @@ export default function HeroSection() {
 
           <div className="absolute bottom-0 left-162 -translate-x-1/2 z-20">
             <img
-              src="../../../public/hero-img/hero-center.png"
+              src="/hero-img/hero-center.png"
               alt="hero-center"
               className="h-[500px] object-contain"
             />
@@ -63,13 +63,13 @@ export default function HeroSection() {
           <div className="basis-1/2 relative z-10 overflow-hidden pr-5 h-full">
             <img
               className="absolute bottom-0 -right-20 w-[626px] h-[565px] object-cover"
-              src="../../../public/hero-img/bg-hero.png"
+              src="/hero-img/bg-hero.png"
               alt="hero_bg"
             />
 
             <img
               className="absolute left-20 bottom-0 w-[377px] h-[455px] "
-              src="../../../public/hero-img/hero-right.png"
+              src="/hero-img/hero-right.png"
               alt="hero_right_img"
             />
 

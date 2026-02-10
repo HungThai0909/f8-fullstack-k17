@@ -8,14 +8,14 @@ export default function MobileApp() {
           <div className="basis-1/2 h-full relative z-10">
             <div className="absolute bottom-3 left-0 w-200">
               <img
-                src="../../../public/mobile-img/friends-laughing-using-mobiles 1.png"
+                src="/mobile-img/friends-laughing-using-mobiles 1.png"
                 alt="friends-laughing-using-mobiles_1"
               />
             </div>
             <div className="absolute bottom-0 left-5 w-200">
               <img
                 className="w-full object-cover"
-                src="../../../public/mobile-img/friends-laughing-using-mobiles 2.png"
+                src="/mobile-img/friends-laughing-using-mobiles 2.png"
                 alt="friends-laughing-using-mobiles_2"
               />
             </div>
@@ -42,7 +42,7 @@ export default function MobileApp() {
               >
                 <img
                   className="w-full object-cover"
-                  src="../../../public/mobile-img/app.png"
+                  src="/mobile-img/app.png"
                   alt="apple.png"
                 />
               </a>

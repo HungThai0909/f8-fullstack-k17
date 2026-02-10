@@ -210,19 +210,19 @@
       {
         "id": 1,
         "title": "Place an Order!",
-        "img": "../../../public/faq-img/order-food 1.png",
+        "img": "/faq-img/order-food 1.png",
         "description": "Place order through our website or Mobile app"
       },
       {
         "id": 2,
         "title": "Track Progress",
-        "img": "../../../public/faq-img/food 1.png",
+        "img": "/faq-img/food 1.png",
         "description": "Your can track your order status with delivery time"
       },
       {
         "id": 3,
         "title": "Get your Order!",
-        "img": "../../../public/faq-img/order 1.png",
+        "img": "/faq-img/order 1.png",
         "description": "Receive your order at a lighting fast speed!"
       }
     ],

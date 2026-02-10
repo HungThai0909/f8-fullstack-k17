@@ -13,7 +13,7 @@ export default function Footer() {
               <img className='h-full cursor-pointer' src="/LOGO 2.png" alt="" />
               <div className='flex justify-center gap-2'>
                 <a href='#' className='block px-5 py-2 rounded-sm transition-all duration-150'>
-                  <img className='w-[400px]' src="../../../public/mobile-img/app.png" alt="apple.png" />
+                  <img className='w-[400px]' src="/mobile-img/app.png" alt="apple.png" />
                 </a>
               </div>
               <p className='text-[15px]'>Company # 490039-445, Registered with House of companies.</p>
@@ -26,10 +26,10 @@ export default function Footer() {
               </div>
               <p className='text-sm'>we wont spam, read our <a href='#' className='underline hover:cursor-pointer text-orange-500 hover:text-orange-800 transition-all duration-150'>email policy</a></p>
               <div className='flex gap-2'>
-                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="../../../public/footer-img/Facebook.png" alt="Facebook" /></a>
-                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="../../../public/footer-img/Instagram.png" alt="Instagram" /></a>
-                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="../../../public/footer-img/TikTok.png" alt="TikTok" /></a>
-                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="../../../public/footer-img/Snapchat.png" alt="Snapchat" /></a>
+                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="/footer-img/Facebook.png" alt="Facebook" /></a>
+                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="/footer-img/Instagram.png" alt="Instagram" /></a>
+                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="/footer-img/TikTok.png" alt="TikTok" /></a>
+                <a className='w-8 aspect-square hover:-translate-y-1 transition-all duration-150 ease-in block' href="#"><img src="/footer-img/Snapchat.png" alt="Snapchat" /></a>
               </div>
             </div>
             <div className="basis-1/6 flex flex-col gap-6">

@@ -45,7 +45,7 @@ export default function Partner() {
               </CardHeader>
               <CardContent className={cn("w-full p-0")}>
                 <img
-                  src="../../../public/partner-img/partner 1.png"
+                  src="/partner-img/partner 1.png"
                   alt="partner 1.png"
                 />
               </CardContent>
@@ -83,7 +83,7 @@ export default function Partner() {
               </CardHeader>
               <CardContent className={cn("w-full p-0 overflow-hidden")}>
                 <img
-                  src="../../../public/partner-img/partner 2.png"
+                  src="/partner-img/partner 2.png"
                   alt="partner 2.png"
                   className="w-full h-full object-cover"
                 />
