@@ -1,18 +1,16 @@
-const loginForm   = document.querySelector('#loginForm');
-const emailInput  = document.querySelector('#email');
-const passInput   = document.querySelector('#password');
-const clientError = document.querySelector('#clientError');
-const serverError = document.querySelector('#serverError');
+const loginForm = document.querySelector('#loginForm');
 
-loginForm.addEventListener('submit', function (e) {
-  const email    = emailInput.value.trim();
-  const password = passInput.value.trim();
+loginForm?.addEventListener('submit', function (e) {
+  const email    = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
+  const clientError = document.querySelector('#clientError');
+  const serverError = document.querySelector('#serverError');
 
   clientError.style.display = 'none';
 
   if (!email || !password) {
     e.preventDefault();
     clientError.style.display = 'block';
-    if (serverError) serverError.style.display = 'none';
+    serverError?.style && (serverError.style.display = 'none');
   }
 });
