@@ -5,9 +5,9 @@ const authController = require('../controllers/auth.controller');
 const loggerMiddleware = require('../middlewares/logger.middleware');
 const authMiddleware = require('../middlewares/auth.middleware');
 router.use(loggerMiddleware);
-router.get('/dang-nhap', authMiddleware.requireGuest, authController.showLogin);
-router.post('/dang-nhap', authMiddleware.requireGuest, authController.login);
-router.post('/dang-xuat', authController.logout);
+router.get('/login', authMiddleware.requireGuest, authController.showLogin);
+router.post('/login', authMiddleware.requireGuest, authController.login);
+router.post('/logout', authController.logout);
 router.get('/', authMiddleware.requireLogin, homeController.index);
 
 module.exports = router;
