@@ -35,14 +35,24 @@ export default function MobileApp() {
             <p className="text-[20px] mb-6">
               Download the Order.uk app for faster ordering
             </p>
-            <div className="flex justify-center gap-2">
+            <div className="flex justify-center gap-1">
               <a
                 href="#"
-                className="block w-[400px] bg-web-black px-5 py-2 rounded-sm transition-all duration-95"
+                className="block w-[200px] bg-web-black py-2 rounded-sm transition-all duration-95"
               >
                 <img
                   className="w-full object-cover"
-                  src="/mobile-img/app.png"
+                  src="/mobile-img/appstore.png"
+                  alt="apple.png"
+                />
+              </a>
+              <a
+                href="#"
+                className="block w-[200px] bg-web-black py-2 rounded-sm transition-all duration-95"
+              >
+                <img
+                  className="w-full object-cover"
+                  src="/mobile-img/googleplay.png"
                   alt="apple.png"
                 />
               </a>
