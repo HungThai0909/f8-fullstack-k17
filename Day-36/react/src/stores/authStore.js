@@ -45,20 +45,49 @@ export const useAuthStore = create(
         });
       },
       checkAuth: async () => {
-        const { token, user } = get();
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        if (token && user) {
-          set({ isAuthenticated: true, isInitializing: false });
-          return true;
-        }
-        set({
-          isAuthenticated: false,
-          user: null,
-          token: null,
-          isInitializing: false,
-        });
-        return false;
+  const { token } = get();
+  if (!token) {
+    set({
+      isAuthenticated: false,
+      user: null,
+      token: null,
+      isInitializing: false,
+    });
+    return false;
+  }
+  
+  set({ isInitializing: true });
+  try {
+    const response = await fetch("https://api.escuelajs.co/api/v1/auth/profile", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
+    });
+    
+    if (!response.ok) {
+      throw new Error("Token không hợp lệ");
+    }
+    
+    const userData = await response.json();
+    set({ 
+      user: userData,
+      isAuthenticated: true, 
+      isInitializing: false 
+    });
+    return true;
+  } catch (error) {
+    set({
+      isAuthenticated: false,
+      user: null,
+      token: null,
+      isInitializing: false,
+    });
+    return false;
+  }
+},
+
     }),
     {
       name: "auth-storage",
