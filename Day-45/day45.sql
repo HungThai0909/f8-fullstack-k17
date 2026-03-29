@@ -7,10 +7,10 @@ ADD COLUMN price_at_purchase DECIMAL(10, 2);
 UPDATE order_items
 SET price_at_purchase = products.current_price
 FROM products
-WHERE order_items.product_id = products.id
+WHERE order_items.product_id = products.id;
 
 -- Tính tổng tiền đơn hàng sử dụng cột mới
-SELECT orders.*, SUM(order_items.quantity * order_items.price_at_purchase) AS total_amount
+SELECT orders.id, SUM(order_items.quantity * order_items.price_at_purchase) AS total_amount
 FROM orders
 JOIN order_items
 ON  orders.id = order_items.order_id
