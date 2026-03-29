@@ -1,14 +1,10 @@
 -- 1.Tìm thông tin khách hàng theo địa chỉ
 
-SELECT khach_hang.*
-FROM
-    khach_hang
-JOIN
-    dat_phong
-ON
-    khach_hang.makh = dat_phong.makh
-WHERE
-    khach_hang.diachi = 'Hoa xuan';
+SELECT khach_hang.makh, khach_hang.tenkh, khach_hang.diachi, khach_hang.sodt
+FROM khach_hang
+INNER JOIN dat_phong
+ON khach_hang.makh = dat_phong.makh
+WHERE khach_hang.diachi = 'Hoa xuan'
 
 
 -- 2. Hiển thị thông tin các phòng được đặt nhiều lần
@@ -51,31 +47,20 @@ FROM
 
 -- 5. Tìm dịch vụ đi kèm theo đơn vị tính và giá
 
-SELECT dich_vu_di_kem.*
-FROM
-    dich_vu_di_kem
-WHERE
-    (donvitinh = 'lon' AND dongia > 10000) OR (donvitinh = 'cai' AND dongia < 5000)
+SELECT dich_vu_di_kem.madv, dich_vu_di_kem.tendv, dich_vu_di_kem.donvitinh, dich_vu_di_kem.dongia
+FROM dich_vu_di_kem
+WHERE (donvitinh = 'lon' AND dongia > 10000) OR (donvitinh = 'Cai' AND dongia < 5000)
 
 -- 6. Hiển thị chi tiết đơn đặt phòng theo năm và giá phòng
 
 SELECT dat_phong.madatphong, dat_phong.maphong, phong.loaiphong, phong.sokhachtoida, phong.giaphong, dat_phong.makh, khach_hang.tenkh, khach_hang.sodt, dat_phong.ngaydat, dat_phong.giobatdau, dat_phong.gioketthuc, dich_vu_di_kem.madv, chi_tiet_su_dung_dv.soluong, dich_vu_di_kem.dongia
-FROM
-    dat_phong
-JOIN
-    phong
-ON
-  dat_phong.maphong = phong.maphong
-JOIN
-    khach_hang
-ON
-  dat_phong.makh = khach_hang.makh
-JOIN
-    chi_tiet_su_dung_dv
-ON
-  dat_phong.madatphong = chi_tiet_su_dung_dv.madatphong
-JOIN
-    dich_vu_di_kem
-ON
-  chi_tiet_su_dung_dv.madv = dich_vu_di_kem.madv
-WHERE extract(YEAR from dat_phong.ngaydat) IN (2016,2017) AND phong.giaphong > 50000
+FROM dat_phong
+INNER JOIN phong
+ON dat_phong.maphong = phong.maphong
+INNER JOIN khach_hang
+ON dat_phong.makh = khach_hang.makh
+LEFT JOIN chi_tiet_su_dung_dv
+ON dat_phong.madatphong = chi_tiet_su_dung_dv.madatphong
+LEFT JOIN dich_vu_di_kem
+ON chi_tiet_su_dung_dv.madv = dich_vu_di_kem.madv
+WHERE EXTRACT(YEAR FROM dat_phong.ngaydat) IN (2016, 2017) AND phong.giaphong > 50000
