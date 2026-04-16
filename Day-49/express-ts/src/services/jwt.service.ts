@@ -12,7 +12,7 @@ export const jwtService = {
   },
 
   verifyAccessToken(token: string) {
-    try {
+    try { 
       const decoded = jsonwebtoken.verify(token, JWT_SECRET);
       return decoded;
     } catch {

@@ -36,8 +36,8 @@ export const authService = {
     //Tạo token
     const accessToken = jwtService.createAccessToken(user.id);
     const refreshToken = jwtService.createRefreshToken(user.id);
-     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-      await prisma.refreshToken.create({
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    await prisma.refreshToken.create({
       data: {
         token: refreshToken,
         userId: user.id,
@@ -73,23 +73,23 @@ export const authService = {
     return true;
   },
   async refreshToken(token: string) {
-     const decoded = jwtService.verifyRefreshToken(token);
+    const decoded = jwtService.verifyRefreshToken(token);
     if (!decoded) {
       throw new Error("Refresh token invalid or expired");
     }
-     const storedToken = await prisma.refreshToken.findUnique({
+    const storedToken = await prisma.refreshToken.findUnique({
       where: { token },
     });
     if (!storedToken) {
-      throw new Error("Refresh token not found");
+      throw new Error("Refresh token invalid or expired");
     }
-     if (storedToken.expiresAt < new Date()) {
-      throw new Error("Refresh token expired");
+    if (storedToken.expiresAt < new Date()) {
+      throw new Error("Refresh token invalid or expired");
     }
 
     const { userId } = decoded as JwtPayload;
     await prisma.refreshToken.delete({ where: { token } });
-     const newAccessToken = jwtService.createAccessToken(userId);
+    const newAccessToken = jwtService.createAccessToken(userId);
     const newRefreshToken = jwtService.createRefreshToken(userId);
 
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
