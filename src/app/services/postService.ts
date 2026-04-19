@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Post, PostsResponse } from "@/types/post";
+import { Post, PostsResponse } from "../type/post";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_API,
