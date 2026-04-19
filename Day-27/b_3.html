@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 3</title>
+  </head>
+  <body>
+    <p>
+      Viết một hàm retry(fn, times) thực thi một Promise function fn, nếu thất
+      bại thì thử lại tối đa times lần.
+    </p>
+    <pre>
+    function retry(fn, times) {
+      // Viết code ở đây
+    }
+    let failingPromise = () => {
+      return new Promise((resolve, reject) => {
+        Math.random() > 0.7 ? resolve("Thành công") : reject("Thất bại");
+      });
+    };
+    retry(failingPromise, 3).then(console.log).catch(console.error);
+    </pre>
+    <script src="js/b_3.js"></script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Styling</title>
+    <style>
+      form {
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 60%;
+        margin: 0 auto;
+        padding: 10px 20px 0 20px;
+      }
+
+      fieldset {
+        background-color: #ccc;
+        margin-top: 30px;
+      }
+
+      legend {
+        position: relative;
+        top: -6px;
+        font-weight: bold;
+      }
+
+      .checkbox-container {
+        display: inline-block;
+        width: 60%;
+      }
+
+      .checkbox-row {
+        margin-bottom: 10px;
+      }
+
+      .checkbox-container label {
+        display: inline-block;
+        width: 140px;
+        margin-bottom: 5px;
+        white-space: nowrap;
+      }
+
+      .checkbox-container input[type="checkbox"] {
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      .checkbox-container span {
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+
+      input[name="weight"] {
+        accent-color: red;
+      }
+
+      .progress-success {
+        accent-color: green;
+        width: 80px;
+      }
+
+      .progress-danger {
+        accent-color: red;
+      }
+
+      #btn {
+        margin-top: 20px;
+      }
+
+      div.form-group > label:first-child {
+        display: block;
+        float: left;
+        width: 30%;
+        text-align: right;
+        margin-right: 20px;
+      }
+
+      div.form-group {
+        margin-bottom: 10px;
+      }
+
+      .form-group.checkbox-container {
+        display: inline-block;
+        width: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Thông Tin Cá Nhân</legend>
+
+        <div class="form-group" id="honorific">
+          <label for="input-honorific">Tước vị: </label>
+          <select name="honorific" id="input-honorific">
+            <option value="Mr">Ông</option>
+            <option value="Mrs">Bà</option>
+            <option value="Wife">Vợ</option>
+            <option value="Husband">Chồng</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="fullname">
+          <label for="input-fullname">Họ tên:</label>
+          <input type="text" id="input-fullname" name="fullname" required />
+        </div>
+
+        <div class="form-group" id="birthdate">
+          <label for="input-birthdate">Ngày sinh:</label>
+          <input type="date" id="input-birthdate" name="birthdate" required />
+        </div>
+
+        <div class="form-group" id="birthtime">
+          <label for="input-birthtime">Giờ sinh: </label>
+          <input type="time" id="input-birthtime" name="birthtime" />
+        </div>
+
+        <div class="form-group" id="gender">
+          <label for="">Giới tính:</label>
+          <input type="radio" name="gender" value="male" required /><span
+            >Nam</span
+          >
+          <input type="radio" name="gender" value="female" /><span>Nữ</span>
+        </div>
+
+        <div class="form-group" id="hobbies">
+          <label>Sở thích: </label>
+          <div class="checkbox-container">
+            <div class="checkbox-row">
+              <label>
+                <input type="checkbox" name="hobbies" value="sports" />
+                <span>Thể thao</span>
+              </label>
+              <label>
+                <input type="checkbox" name="hobbies" value="travel" />
+                <span>Du lịch</span>
+              </label>
+              <label>
+                <input type="checkbox" name="hobbies" value="culinary" />
+                <span>Ẩm thực</span>
+              </label>
+            </div>
+
+            <div class="checkbox-row">
+              <label>
+                <input type="checkbox" name="hobbies" value="music" />
+                <span>Âm nhạc</span>
+              </label>
+              <label>
+                <input type="checkbox" name="hobbies" value="language" />
+                <span>Học ngoại ngữ</span>
+              </label>
+              <label>
+                <input type="checkbox" name="hobbies" value="business" />
+                <span>Kinh doanh</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Thông Tin Liên Hệ</legend>
+
+        <div class="form-group" id="phone">
+          <label for="input-phone">Điện thoại:</label>
+          <input type="tel" id="input-phone" name="phone" required />
+        </div>
+
+        <div class="form-group" id="email">
+          <label for="input-email">Email:</label>
+          <input
+            type="email"
+            id="input-email"
+            name="email"
+            placeholder="ví dụ: billgate@apple.com"
+            required
+          />
+        </div>
+
+        <div class="form-group" id="website">
+          <label for="input-website">Website:</label>
+          <input type="url" id="input-website" name="website" />
+        </div>
+
+        <div class="form-group" id="province">
+          <label for="input-province">Mã tỉnh: </label>
+          <input type="text" id="input-province" name="province" />
+        </div>
+
+        <div class="form-group" id="address">
+          <label for="input-address">Địa chỉ: </label>
+          <textarea
+            id="input-address"
+            name="address"
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Chỉ Số Sức Khỏe</legend>
+
+        <div class="form-group" id="height">
+          <label for="input-height">Chiều cao(cm): </label>
+          <input type="number" id="input-height" name="height" value="172" />
+        </div>
+
+        <div class="form-group" id="weight">
+          <label for="input-weight">Cân nặng[45kg - 100kg]: </label>
+          <input
+            type="range"
+            id="input-weight"
+            min="45"
+            max="100"
+            name="weight"
+            value="80"
+          />
+        </div>
+
+        <div class="form-group" id="heart-rate">
+          <label for="input-heartrate">Nhịp tim[60-100 nhịp/phút]: </label>
+          <progress
+            id="input-heartrate"
+            class="progress-success"
+            value="80"
+            min="60"
+            max="100"
+          ></progress>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Giấy Tờ Cá Nhân</legend>
+        <div class="form-group" id="document">
+          <label for="input-document">Tài liệu: </label>
+          <input type="file" id="input-document" name="document" />
+        </div>
+
+        <div class="form-group" id="upload-progress">
+          <label for="input-upload">Tải lên 30%: </label>
+          <progress
+            id="input-upload"
+            class="progress-danger"
+            value="30"
+            min="0"
+            max="100"
+          ></progress>
+        </div>
+      </fieldset>
+
+      <div class="form-group" id="form-actions">
+        <button type="submit">Gửi</button>
+        <button type="reset">Hủy</button>
+      </div>
+    </form>
+  </body>
+</html>

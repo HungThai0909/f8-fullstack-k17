@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: block;
+    margin: 30px auto;
+    border: 0;
+    width: 100px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 99px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+
+#toggle:not(:checked) ~ .btn {
+    background-color: gray;
+}
+
+#toggle:not(:checked) ~ .btn::after {
+    left: 2px;
+}
+
+#toggle:checked ~ .btn {
+    background-color: green;
+}
+
+#toggle:checked ~ .btn::after {
+    left: calc(100% - 28px);
+}

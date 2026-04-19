@@ -1,0 +1,9 @@
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(100)
+  price       Float
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+
+  @@map("product")
+}

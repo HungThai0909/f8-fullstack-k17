@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 1</title>
+  </head>
+  <body>
+    <p>Cho 3 hàm sau:</p>
+    <pre>
+    function fetchUser() {
+      return new Promise((resolve) => setTimeout(() => resolve("User Data"), 2000));
+    }
+    function fetchPosts() {
+      return new Promise((resolve) => setTimeout(() => resolve("Post Data"), 3000));
+    }
+    function fetchComments() {
+      return new Promise((resolve) =>
+        setTimeout(() => resolve("Comment Data"), 1000)
+      );
+    }
+    </pre>
+    <p>Yêu cầu:</p>
+    <ul>
+      <li>Dùng Promise.all để lấy kết quả từ cả 3 promises.</li>
+      <li>Tính tổng thời gian chạy của cả 3 promises.</li>
+    </ul>
+    <script src="js/b_1.js"></script>
+  </body>
+</html>

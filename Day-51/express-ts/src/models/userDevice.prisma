@@ -1,0 +1,16 @@
+model UserDevice {
+    id           Int       @id @default(autoincrement())
+    userId       Int
+    accessJti    String
+    refreshJti   String
+    ipAddress    String
+    location     String
+    browser      String
+    os           String
+    lastActivity DateTime
+    status       Boolean
+    createdAt    DateTime? @db.Timestamp()
+    updatedAt    DateTime? @db.Timestamp()
+
+    @@map("user_devices")
+}
