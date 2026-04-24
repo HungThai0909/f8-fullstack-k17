@@ -18,16 +18,13 @@ export const videoService = {
   },
 
   async create({ url }: VideoCreateInput) {
-    const video = await prisma.video.create({
-      data: { url },
-    });
-  
-    videoService.fetchAndUpdate(video.id, url).catch((err) => {
-      console.error(`Failed to fetch info for video ${video.id}:`, err);
-    });
+  const video = await prisma.video.create({
+    data: { url },
+  });
 
-    return video;
-  },
+  const updated = await videoService.fetchAndUpdate(video.id, url);
+  return updated ?? video;
+},
 
   async fetchAndUpdate(id: number, url: string) {
     const info = await getYoutubeVideoInfo(url);

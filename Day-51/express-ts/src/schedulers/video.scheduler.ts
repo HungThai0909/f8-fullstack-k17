@@ -1,13 +1,9 @@
-import { videoQueue } from "../queue/video.queue";
+import nodeCron from "node-cron";
+import { videoService } from "../services/video.service";
 
-videoQueue.upsertJobScheduler(
-  "video-sync-scheduler",
-  {
-    pattern: "*/1 * * * *", 
-  },
-  {
-    name: "sync-all-videos",
-  },
-);
+nodeCron.schedule("*/1 * * * *", async () => {
+  console.log("[Scheduler] Starting video sync...");
+  await videoService.syncAllVideos();
+});
 
 console.log("[Scheduler] Video scheduler started. Syncing every 1 minute.");

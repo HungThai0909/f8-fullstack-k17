@@ -1,5 +1,6 @@
 import nodeCron from "node-cron";
 import { emailQueue } from "../queue/email.queue";
+import "./video.scheduler";
 
 emailQueue.upsertJobScheduler(
   "email-notice-scheduler",
