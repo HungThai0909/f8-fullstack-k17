@@ -117,9 +117,9 @@ export const authController = {
       message: "If the email exists, a reset code has been sent",
     });
   },
-  async resetPassword(req: Request, res: Response) {
-  const { userId, otp, newPassword } = req.body;
-  await authService.resetPassword(+userId, otp, newPassword);
+ async resetPassword(req: Request, res: Response) {
+  const { email, otp, newPassword } = req.body;
+  await authService.resetPassword(email, otp, newPassword);
   res.json({
     success: true,
     message: "Password reset successfully. Please login again.",

@@ -198,23 +198,27 @@ export const authService = {
     );
     return true;
   },
-  async resetPassword(userId: number, otp: string, newPassword: string) {
-    const storedOtp = await redisClient.get(`reset:${userId}`);
-    if (!storedOtp) {
-      throw new Error("OTP expired or not found");
-    }
-    if (storedOtp !== otp) {
-      throw new Error("OTP invalid");
-    }
-    const passwordHash = hashPassword(newPassword);
-    await prisma.user.update({
-      where: { id: userId },
-      data: { password: passwordHash },
-    });
-    await redisClient.del(`reset:${userId}`);
-    await this.revokeAllRefreshTokens(userId);
-    return true;
-  },
+  async resetPassword(email: string, otp: string, newPassword: string) {
+  const user = await userService.findByEmail(email);
+  if (!user) {
+    throw new Error("OTP expired or not found");
+  }
+  const storedOtp = await redisClient.get(`reset:${user.id}`);
+  if (!storedOtp) {
+    throw new Error("OTP expired or not found");
+  }
+  if (storedOtp !== otp) {
+    throw new Error("OTP invalid");
+  }
+  const passwordHash = hashPassword(newPassword);
+  await prisma.user.update({
+    where: { id: user.id },
+    data: { password: passwordHash },
+  });
+  await redisClient.del(`reset:${user.id}`);
+  await this.revokeAllRefreshTokens(user.id);
+  return true;
+},
   async revokeAllRefreshTokens(userId: number) {
     const keys = await redisClient.keys(`refreshToken:${userId}:*`);
     if (keys.length > 0) {
